@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # Node.js Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: weizvpn-backend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - JWT_SECRET=${JWT_SECRET:-change-this-secret-in-production}
+      - JWT_EXPIRES_IN=7d
+    volumes:
+      - backend_data:/app/data
+    networks:
+      - weizvpn-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+  # Nginx Reverse Proxy
+  nginx:
+    build:
+      context: ./backend
+      dockerfile: docker/Dockerfile.nginx
+    container_name: weizvpn-nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./backend/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
+      - nginx_ssl:/etc/nginx/ssl
+      - nginx_static:/var/www/static
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - weizvpn-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 10s
+
+networks:
+  weizvpn-network:
+    driver: bridge
+
+volumes:
+  backend_data:
+    driver: local
+  nginx_ssl:
+    driver: local
+  nginx_static:
+    driver: local

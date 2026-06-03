@@ -1,0 +1,99 @@
+name: Deploy WeizVPN Backend to Server
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'backend/**'
+      - 'docker-compose.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 📦 Install Dependencies & Test
+        run: |
+          cd backend
+          npm ci --production
+          echo "✅ Dependencies installed"
+
+      - name: 🔄 Server Setup (Docker, Nginx, Directory)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            # Install Docker if not installed
+            if ! command -v docker &> /dev/null; then
+              echo "📦 Installing Docker..."
+              curl -fsSL https://get.docker.com | bash
+              systemctl enable docker
+              systemctl start docker
+            fi
+
+            # Install Docker Compose if not installed
+            if ! command -v docker-compose &> /dev/null; then
+              echo "📦 Installing Docker Compose..."
+              curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+              chmod +x /usr/local/bin/docker-compose
+            fi
+
+            # Create target directory
+            mkdir -p /var/www/weizvpn
+            echo "✅ Server setup complete"
+
+      - name: 🚀 Deploy Backend Files via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          source: "backend/*,backend/**/*,docker-compose.yml"
+          target: "/var/www/weizvpn"
+          strip_components: 0
+          rm: false
+
+      - name: 🔄 Build & Restart Docker Containers
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VPS_HOST }}
+          username: ${{ secrets.VPS_USER }}
+          key: ${{ secrets.VPS_SSH_KEY }}
+          port: 22
+          script: |
+            cd /var/www/weizvpn
+
+            # Create .env file from GitHub secret if provided
+            if [ -n "${{ secrets.JWT_SECRET }}" ]; then
+              echo "JWT_SECRET=${{ secrets.JWT_SECRET }}" > backend/.env
+              echo "NODE_ENV=production" >> backend/.env
+              echo "PORT=3000" >> backend/.env
+            fi
+
+            # Pull latest images and rebuild
+            echo "🐳 Building and restarting Docker containers..."
+            docker-compose down
+            docker-compose build --no-cache
+            docker-compose up -d
+
+            # Clean up old images
+            docker image prune -f
+
+            # Check container status
+            echo "📊 Container Status:"
+            docker-compose ps
+
+            echo "✅ Deployment completed successfully!"
