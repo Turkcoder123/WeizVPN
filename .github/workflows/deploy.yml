@@ -21,10 +21,10 @@ jobs:
         with:
           node-version: '20'
 
-      - name: 📦 Install Dependencies & Test
+      - name: 📦 Install Dependencies
         run: |
           cd backend
-          npm ci --production
+          npm ci
           echo "✅ Dependencies installed"
 
       - name: 🔄 Server Setup (Docker, Nginx, Directory)
