@@ -6,7 +6,7 @@ RUN apk add --no-cache openssl
 # Remove default nginx configuration
 RUN rm /etc/nginx/conf.d/default.conf
 
-# Copy custom nginx configuration
+# Copy custom nginx configuration (from backend/nginx/ relative to build context ./backend)
 COPY nginx/nginx.conf /etc/nginx/conf.d/
 
 # Create SSL directory
@@ -14,8 +14,6 @@ RUN mkdir -p /etc/nginx/ssl
 
 # Create static files directory
 RUN mkdir -p /var/www/static
-
-# (web UI files are mounted via docker-compose volume)
 
 # Expose ports
 EXPOSE 80

@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'backend/**'
+      - 'app/web/**'
       - 'docker-compose.yml'
   workflow_dispatch:
 
@@ -69,14 +70,14 @@ jobs:
             sudo chown -R $USER:$USER /var/www/weizvpn
             echo "✅ Server setup complete"
 
-      - name: 🚀 Deploy Backend Files via SCP
+      - name: 🚀 Deploy Files via SCP
         uses: appleboy/scp-action@v0.1.7
         with:
           host: ${{ secrets.VPS_HOST }}
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT || '22' }}
-          source: "backend/*,backend/**/*,docker-compose.yml"
+          source: "backend/*,backend/**/*,app/web/*,app/web/**/*,docker-compose.yml"
           target: "/var/www/weizvpn"
           strip_components: 0
           rm: false
