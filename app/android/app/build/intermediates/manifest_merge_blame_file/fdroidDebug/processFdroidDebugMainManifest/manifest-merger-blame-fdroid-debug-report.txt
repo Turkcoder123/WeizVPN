@@ -1,0 +1,803 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.v2ray.ang.fdroid"
+4    android:versionCode="5073100"
+5    android:versionName="2.2.1" >
+6
+7    <uses-sdk
+7-->INJECTED
+8        android:minSdkVersion="24"
+8-->INJECTED
+9        android:targetSdkVersion="37" />
+9-->INJECTED
+10
+11    <supports-screens
+11-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:6:5-11:40
+12        android:anyDensity="true"
+12-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:7:9-34
+13        android:largeScreens="true"
+13-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:8:9-36
+14        android:normalScreens="true"
+14-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:9:9-37
+15        android:smallScreens="true"
+15-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:10:9-36
+16        android:xlargeScreens="true" />
+16-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:11:9-37
+17
+18    <uses-feature
+18-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:13:5-15:36
+19        android:name="android.hardware.camera"
+19-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:14:9-47
+20        android:required="false" />
+20-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:15:9-33
+21    <uses-feature
+21-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:16:5-18:36
+22        android:name="android.hardware.camera.autofocus"
+22-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:17:9-57
+23        android:required="false" />
+23-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:18:9-33
+24    <uses-feature
+24-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:19:5-21:36
+25        android:name="android.software.leanback"
+25-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:20:9-49
+26        android:required="false" />
+26-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:21:9-33
+27    <uses-feature
+27-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:22:5-24:36
+28        android:name="android.hardware.touchscreen"
+28-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:23:9-52
+29        android:required="false" />
+29-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:24:9-33
+30
+31    <!-- https://developer.android.com/about/versions/11/privacy/package-visibility -->
+32    <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+32-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:27:5-29:77
+32-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:28:9-61
+33    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+33-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:30:5-79
+33-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:30:22-76
+34    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+34-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:31:5-79
+34-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:31:22-76
+35    <uses-permission android:name="android.permission.INTERNET" />
+35-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:32:5-67
+35-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:32:22-64
+36    <uses-permission android:name="android.permission.CAMERA" />
+36-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:33:5-65
+36-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:33:22-62
+37    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+37-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:34:5-35:51
+37-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:34:22-74
+38    <uses-permission
+38-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:36:5-38:38
+39        android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE"
+39-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:37:9-73
+40        android:minSdkVersion="34" />
+40-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:38:9-35
+41    <!-- <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> -->
+42    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+42-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:40:5-77
+42-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:40:22-74
+43    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+43-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:41:5-81
+43-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:41:22-78
+44    <uses-permission android:name="android.permission.WAKE_LOCK" />
+44-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:23:5-68
+44-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:23:22-65
+45
+46    <permission
+46-->[androidx.core:core:1.17.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\4bf27c863406da99a6346092919e9780\transformed\core-1.17.0\AndroidManifest.xml:22:5-24:47
+47        android:name="com.v2ray.ang.fdroid.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+47-->[androidx.core:core:1.17.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\4bf27c863406da99a6346092919e9780\transformed\core-1.17.0\AndroidManifest.xml:23:9-81
+48        android:protectionLevel="signature" />
+48-->[androidx.core:core:1.17.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\4bf27c863406da99a6346092919e9780\transformed\core-1.17.0\AndroidManifest.xml:24:9-44
+49
+50    <uses-permission android:name="com.v2ray.ang.fdroid.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+50-->[androidx.core:core:1.17.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\4bf27c863406da99a6346092919e9780\transformed\core-1.17.0\AndroidManifest.xml:26:5-97
+50-->[androidx.core:core:1.17.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\4bf27c863406da99a6346092919e9780\transformed\core-1.17.0\AndroidManifest.xml:26:22-94
+51
+52    <uses-feature
+52-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:28:5-30:36
+53        android:name="android.hardware.camera.front"
+53-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:29:9-53
+54        android:required="false" />
+54-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:30:9-33
+55    <uses-feature
+55-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:36:5-38:36
+56        android:name="android.hardware.camera.flash"
+56-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:37:9-53
+57        android:required="false" />
+57-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:38:9-33
+58    <uses-feature
+58-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:39:5-41:36
+59        android:name="android.hardware.screen.landscape"
+59-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:40:9-57
+60        android:required="false" />
+60-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:41:9-33
+61    <uses-feature
+61-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:42:5-44:36
+62        android:name="android.hardware.wifi"
+62-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:43:9-45
+63        android:required="false" />
+63-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:44:9-33
+64
+65    <application
+65-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:43:5-299:19
+66        android:name="com.v2ray.ang.AngApplication"
+66-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:44:9-39
+67        android:allowBackup="true"
+67-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:45:9-35
+68        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+68-->[androidx.core:core:1.17.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\4bf27c863406da99a6346092919e9780\transformed\core-1.17.0\AndroidManifest.xml:28:18-86
+69        android:banner="@mipmap/ic_banner"
+69-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:46:9-43
+70        android:debuggable="true"
+71        android:extractNativeLibs="true"
+71-->INJECTED
+72        android:icon="@mipmap/ic_launcher"
+72-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:47:9-43
+73        android:label="@string/app_name"
+73-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:48:9-41
+74        android:networkSecurityConfig="@xml/network_security_config"
+74-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:49:9-69
+75        android:supportsRtl="true"
+75-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:50:9-35
+76        android:testOnly="true"
+77        android:theme="@style/AppThemeDayNight.NoActionBar"
+77-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:51:9-60
+78        android:usesCleartextTraffic="true" >
+78-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:52:9-44
+79        <activity
+79-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:54:9-71:20
+80            android:name="com.v2ray.ang.ui.MainActivity"
+80-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:55:13-44
+81            android:exported="true"
+81-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:56:13-36
+82            android:launchMode="singleTask" >
+82-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:57:13-44
+83            <intent-filter>
+83-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:58:13-63:29
+84                <action android:name="android.intent.action.MAIN" />
+84-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:59:17-69
+84-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:59:25-66
+85
+86                <category android:name="android.intent.category.LAUNCHER" />
+86-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:61:17-77
+86-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:61:27-74
+87                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+87-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:62:17-86
+87-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:62:27-83
+88            </intent-filter>
+89            <intent-filter>
+89-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:64:13-66:29
+90                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+90-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:65:17-99
+90-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:65:25-96
+91            </intent-filter>
+92
+93            <meta-data
+93-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:68:13-70:53
+94                android:name="android.app.shortcuts"
+94-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:69:17-53
+95                android:resource="@xml/shortcuts" />
+95-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:70:17-50
+96        </activity>
+97        <activity
+97-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:72:9-75:60
+98            android:name="com.v2ray.ang.ui.ServerActivity"
+98-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:73:13-46
+99            android:exported="false"
+99-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:74:13-37
+100            android:windowSoftInputMode="stateUnchanged" />
+100-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:75:13-57
+101        <activity
+101-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:76:9-79:60
+102            android:name="com.v2ray.ang.ui.ServerCustomConfigActivity"
+102-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:77:13-58
+103            android:exported="false"
+103-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:78:13-37
+104            android:windowSoftInputMode="stateUnchanged" />
+104-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:79:13-57
+105        <activity
+105-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:80:9-83:60
+106            android:name="com.v2ray.ang.ui.ServerGroupActivity"
+106-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:81:13-51
+107            android:exported="false"
+107-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:82:13-37
+108            android:windowSoftInputMode="stateUnchanged" />
+108-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:83:13-57
+109        <activity
+109-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:84:9-87:60
+110            android:name="com.v2ray.ang.ui.ServerProxyChainActivity"
+110-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:85:13-56
+111            android:exported="false"
+111-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:86:13-37
+112            android:windowSoftInputMode="stateUnchanged" />
+112-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:87:13-57
+113        <activity
+113-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:88:9-90:40
+114            android:name="com.v2ray.ang.ui.SettingsActivity"
+114-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:89:13-48
+115            android:exported="false" />
+115-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:90:13-37
+116        <activity
+116-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:91:9-93:40
+117            android:name="com.v2ray.ang.ui.PerAppProxyActivity"
+117-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:92:13-51
+118            android:exported="false" />
+118-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:93:13-37
+119        <activity
+119-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:94:9-96:40
+120            android:name="com.v2ray.ang.ui.AppPickerActivity"
+120-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:95:13-49
+121            android:exported="false" />
+121-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:96:13-37
+122        <activity
+122-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:97:9-99:40
+123            android:name="com.v2ray.ang.ui.ScannerActivity"
+123-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:98:13-47
+124            android:exported="false" />
+124-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:99:13-37
+125        <activity
+125-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:100:9-102:40
+126            android:name="com.v2ray.ang.ui.LogcatActivity"
+126-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:101:13-46
+127            android:exported="false" />
+127-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:102:13-37
+128        <activity
+128-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:103:9-105:40
+129            android:name="com.v2ray.ang.ui.RoutingSettingActivity"
+129-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:104:13-54
+130            android:exported="false" />
+130-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:105:13-37
+131        <activity
+131-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:106:9-108:40
+132            android:name="com.v2ray.ang.ui.RoutingEditActivity"
+132-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:107:13-51
+133            android:exported="false" />
+133-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:108:13-37
+134        <activity
+134-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:109:9-111:40
+135            android:name="com.v2ray.ang.ui.SubSettingActivity"
+135-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:110:13-50
+136            android:exported="false" />
+136-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:111:13-37
+137        <activity
+137-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:112:9-114:40
+138            android:name="com.v2ray.ang.ui.UserAssetActivity"
+138-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:113:13-49
+139            android:exported="false" />
+139-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:114:13-37
+140        <activity
+140-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:115:9-117:40
+141            android:name="com.v2ray.ang.ui.UserAssetUrlActivity"
+141-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:116:13-52
+142            android:exported="false" />
+142-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:117:13-37
+143        <activity
+143-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:119:9-121:40
+144            android:name="com.v2ray.ang.ui.SubEditActivity"
+144-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:120:13-47
+145            android:exported="false" />
+145-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:121:13-37
+146        <activity
+146-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:122:9-124:40
+147            android:name="com.v2ray.ang.ui.ScScannerActivity"
+147-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:123:13-49
+148            android:exported="false" />
+148-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:124:13-37
+149        <activity
+149-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:125:9-130:79
+150            android:name="com.v2ray.ang.ui.ScSwitchActivity"
+150-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:126:13-48
+151            android:excludeFromRecents="true"
+151-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:127:13-46
+152            android:exported="false"
+152-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:128:13-37
+153            android:process=":RunSoLibV2RayDaemon"
+153-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:129:13-51
+154            android:theme="@style/AppThemeDayNight.NoActionBar.Translucent" />
+154-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:130:13-76
+155        <activity
+155-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:131:9-136:79
+156            android:name="com.v2ray.ang.ui.ScStartActivity"
+156-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:132:13-47
+157            android:excludeFromRecents="true"
+157-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:133:13-46
+158            android:exported="false"
+158-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:134:13-37
+159            android:process=":RunSoLibV2RayDaemon"
+159-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:135:13-51
+160            android:theme="@style/AppThemeDayNight.NoActionBar.Translucent" />
+160-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:136:13-76
+161        <activity
+161-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:137:9-142:79
+162            android:name="com.v2ray.ang.ui.ScStopActivity"
+162-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:138:13-46
+163            android:excludeFromRecents="true"
+163-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:139:13-46
+164            android:exported="false"
+164-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:140:13-37
+165            android:process=":RunSoLibV2RayDaemon"
+165-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:141:13-51
+166            android:theme="@style/AppThemeDayNight.NoActionBar.Translucent" />
+166-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:142:13-76
+167        <activity
+167-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:144:9-162:20
+168            android:name="com.v2ray.ang.ui.UrlSchemeActivity"
+168-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:145:13-49
+169            android:exported="true" >
+169-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:146:13-36
+170            <intent-filter>
+170-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:147:13-151:29
+171                <action android:name="android.intent.action.SEND" />
+171-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:148:17-69
+171-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:148:25-66
+172
+173                <category android:name="android.intent.category.DEFAULT" />
+173-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:149:17-76
+173-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:149:27-73
+174
+175                <data android:mimeType="text/plain" />
+175-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:150:17-55
+175-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:150:23-52
+176            </intent-filter>
+177            <intent-filter>
+177-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:152:13-161:29
+178                <action android:name="android.intent.action.VIEW" />
+178-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:153:17-69
+178-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:153:25-66
+179
+180                <category android:name="android.intent.category.BROWSABLE" />
+180-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:155:17-78
+180-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:155:27-75
+181                <category android:name="android.intent.category.DEFAULT" />
+181-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:149:17-76
+181-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:149:27-73
+182
+183                <data android:scheme="v2rayng" />
+183-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:150:17-55
+183-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:158:23-47
+184                <data android:host="install-config" />
+184-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:150:17-55
+184-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:159:23-52
+185                <data android:host="install-sub" />
+185-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:150:17-55
+185-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:159:23-52
+186            </intent-filter>
+187        </activity>
+188        <activity
+188-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:163:9-165:40
+189            android:name="com.v2ray.ang.ui.CheckUpdateActivity"
+189-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:164:13-51
+190            android:exported="false" />
+190-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:165:13-37
+191        <activity
+191-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:166:9-168:40
+192            android:name="com.v2ray.ang.ui.BackupActivity"
+192-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:167:13-46
+193            android:exported="false" />
+193-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:168:13-37
+194        <activity
+194-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:169:9-171:40
+195            android:name="com.v2ray.ang.ui.AboutActivity"
+195-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:170:13-45
+196            android:exported="false" />
+196-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:171:13-37
+197
+198        <service
+198-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:173:9-191:19
+199            android:name="com.v2ray.ang.service.CoreVpnService"
+199-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:174:13-51
+200            android:enabled="true"
+200-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:175:13-35
+201            android:exported="false"
+201-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:176:13-37
+202            android:foregroundServiceType="specialUse"
+202-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:177:13-55
+203            android:label="@string/app_name"
+203-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:178:13-45
+204            android:permission="android.permission.BIND_VPN_SERVICE"
+204-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:179:13-69
+205            android:process=":RunSoLibV2RayDaemon" >
+205-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:180:13-51
+206            <intent-filter>
+206-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:182:13-184:29
+207                <action android:name="android.net.VpnService" />
+207-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:183:17-65
+207-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:183:25-62
+208            </intent-filter>
+209
+210            <meta-data
+210-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:185:13-187:40
+211                android:name="android.net.VpnService.SUPPORTS_ALWAYS_ON"
+211-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:186:17-73
+212                android:value="true" />
+212-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:187:17-37
+213
+214            <property
+214-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:188:13-190:39
+215                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+215-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:189:17-76
+216                android:value="vpn" />
+216-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:190:17-36
+217        </service>
+218        <service
+218-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:193:9-202:19
+219            android:name="com.v2ray.ang.service.CoreProxyOnlyService"
+219-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:194:13-57
+220            android:exported="false"
+220-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:195:13-37
+221            android:foregroundServiceType="specialUse"
+221-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:196:13-55
+222            android:label="@string/app_name"
+222-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:197:13-45
+223            android:process=":RunSoLibV2RayDaemon" >
+223-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:198:13-51
+224            <property
+224-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:188:13-190:39
+225                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+225-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:189:17-76
+226                android:value="proxy" />
+226-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:190:17-36
+227        </service>
+228        <service
+228-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:204:9-212:19
+229            android:name="com.v2ray.ang.service.CoreTestService"
+229-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:205:13-52
+230            android:exported="false"
+230-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:206:13-37
+231            android:foregroundServiceType="specialUse"
+231-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:207:13-55
+232            android:process=":RunSoLibV2RayDaemon" >
+232-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:208:13-51
+233            <property
+233-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:188:13-190:39
+234                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+234-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:189:17-76
+235                android:value="test" />
+235-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:190:17-36
+236        </service>
+237
+238        <receiver
+238-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:214:9-226:20
+239            android:name="com.v2ray.ang.receiver.WidgetProvider"
+239-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:215:13-52
+240            android:exported="true"
+240-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:216:13-36
+241            android:process=":RunSoLibV2RayDaemon" >
+241-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:217:13-51
+242            <meta-data
+242-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:218:13-220:63
+243                android:name="android.appwidget.provider"
+243-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:219:17-58
+244                android:resource="@xml/app_widget_provider" />
+244-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:220:17-60
+245
+246            <intent-filter>
+246-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:221:13-225:29
+247                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+247-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:222:17-84
+247-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:222:25-81
+248                <action android:name="com.v2ray.ang.fdroid.action.widget.click" />
+248-->INJECTED
+248-->INJECTED
+249                <action android:name="com.v2ray.ang.fdroid.action.activity" />
+249-->INJECTED
+249-->INJECTED
+250            </intent-filter>
+251        </receiver>
+252        <receiver
+252-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:227:9-234:20
+253            android:name="com.v2ray.ang.receiver.BootReceiver"
+253-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:228:13-50
+254            android:exported="true"
+254-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:229:13-36
+255            android:label="BootReceiver" >
+255-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:230:13-41
+256            <intent-filter>
+256-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:231:13-233:29
+257                <action android:name="android.intent.action.BOOT_COMPLETED" />
+257-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:232:17-79
+257-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:232:25-76
+258            </intent-filter>
+259        </receiver>
+260
+261        <service
+261-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:236:9-250:19
+262            android:name="com.v2ray.ang.service.QSTileService"
+262-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:237:13-50
+263            android:exported="true"
+263-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:238:13-36
+264            android:foregroundServiceType="specialUse"
+264-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:239:13-55
+265            android:icon="@drawable/ic_stat_name"
+265-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:240:13-50
+266            android:label="@string/app_tile_name"
+266-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:241:13-50
+267            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+267-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:242:13-77
+268            android:process=":RunSoLibV2RayDaemon" >
+268-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:243:13-51
+269            <intent-filter>
+269-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:244:13-246:29
+270                <action android:name="android.service.quicksettings.action.QS_TILE" />
+270-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:245:17-87
+270-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:245:25-84
+271            </intent-filter>
+272
+273            <property
+273-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:188:13-190:39
+274                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+274-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:189:17-76
+275                android:value="tile" />
+275-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:190:17-36
+276        </service>
+277        <!-- =====================Tasker===================== -->
+278        <activity
+278-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:252:9-259:20
+279            android:name="com.v2ray.ang.ui.TaskerActivity"
+279-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:253:13-46
+280            android:exported="true"
+280-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:254:13-36
+281            android:icon="@mipmap/ic_launcher" >
+281-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:255:13-47
+282            <intent-filter>
+282-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:256:13-258:29
+283                <action android:name="com.twofortyfouram.locale.intent.action.EDIT_SETTING" />
+283-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:257:17-95
+283-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:257:25-92
+284            </intent-filter>
+285        </activity>
+286
+287        <receiver
+287-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:261:9-269:20
+288            android:name="com.v2ray.ang.receiver.TaskerReceiver"
+288-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:262:13-52
+289            android:exported="true"
+289-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:263:13-36
+290            android:process=":RunSoLibV2RayDaemon" >
+290-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:264:13-51
+291            <intent-filter>
+291-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:266:13-268:29
+292                <action android:name="com.twofortyfouram.locale.intent.action.FIRE_SETTING" />
+292-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:267:17-95
+292-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:267:25-92
+293            </intent-filter>
+294        </receiver>
+295        <!-- =====================Tasker===================== -->
+296        <provider
+296-->INJECTED
+297            android:name="androidx.startup.InitializationProvider"
+297-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:272:13-67
+298            android:authorities="com.v2ray.ang.fdroid.androidx-startup"
+298-->INJECTED
+299            android:exported="false" >
+299-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:274:13-37
+300            <meta-data
+300-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\cde973c6f07c25b46faac1b88894b1e5\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+301                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+301-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\cde973c6f07c25b46faac1b88894b1e5\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+302                android:value="androidx.startup" />
+302-->[androidx.emoji2:emoji2:1.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\cde973c6f07c25b46faac1b88894b1e5\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+303            <meta-data
+303-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\eeba955304750f77060a701bc4d72a37\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:29:13-31:52
+304                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+304-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\eeba955304750f77060a701bc4d72a37\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:30:17-78
+305                android:value="androidx.startup" />
+305-->[androidx.lifecycle:lifecycle-process:2.10.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\eeba955304750f77060a701bc4d72a37\transformed\lifecycle-process-2.10.0\AndroidManifest.xml:31:17-49
+306            <meta-data
+306-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:29:13-31:52
+307                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+307-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:30:17-85
+308                android:value="androidx.startup" />
+308-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:31:17-49
+309            <meta-data
+309-->[com.squareup.okhttp3:okhttp-android:5.3.2] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\65cbe73c3606545257e1a6a6fa7db7df\transformed\okhttp-release\AndroidManifest.xml:16:13-18:52
+310                android:name="okhttp3.internal.platform.PlatformInitializer"
+310-->[com.squareup.okhttp3:okhttp-android:5.3.2] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\65cbe73c3606545257e1a6a6fa7db7df\transformed\okhttp-release\AndroidManifest.xml:17:17-77
+311                android:value="androidx.startup" />
+311-->[com.squareup.okhttp3:okhttp-android:5.3.2] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\65cbe73c3606545257e1a6a6fa7db7df\transformed\okhttp-release\AndroidManifest.xml:18:17-49
+312        </provider>
+313
+314        <service
+314-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:284:9-287:37
+315            android:name="androidx.work.multiprocess.RemoteWorkManagerService"
+315-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:285:13-79
+316            android:exported="false"
+316-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:286:13-37
+317            android:process=":bg" />
+317-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:287:13-34
+318
+319        <provider
+319-->INJECTED
+320            android:name="androidx.core.content.FileProvider"
+320-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:290:13-62
+321            android:authorities="com.v2ray.ang.fdroid.cache"
+321-->INJECTED
+322            android:exported="false"
+322-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:292:13-37
+323            android:grantUriPermissions="true" >
+323-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:293:13-47
+324            <meta-data
+324-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:294:13-296:55
+325                android:name="android.support.FILE_PROVIDER_PATHS"
+325-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:295:17-67
+326                android:resource="@xml/cache_paths" />
+326-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:296:17-52
+327        </provider>
+328
+329        <activity
+329-->[com.github.T8RIN.QuickieExtended:quickie-foss:1.14.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\de89cfafa3f8a599e62d1b066546aef5\transformed\quickie-foss-1.14.0\AndroidManifest.xml:15:9-19:45
+330            android:name="io.github.g00fy2.quickie.QRScannerActivity"
+330-->[com.github.T8RIN.QuickieExtended:quickie-foss:1.14.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\de89cfafa3f8a599e62d1b066546aef5\transformed\quickie-foss-1.14.0\AndroidManifest.xml:16:13-70
+331            android:screenOrientation="behind"
+331-->[com.github.T8RIN.QuickieExtended:quickie-foss:1.14.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\de89cfafa3f8a599e62d1b066546aef5\transformed\quickie-foss-1.14.0\AndroidManifest.xml:17:13-47
+332            android:theme="@style/QuickieScannerActivity" />
+332-->[com.github.T8RIN.QuickieExtended:quickie-foss:1.14.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\de89cfafa3f8a599e62d1b066546aef5\transformed\quickie-foss-1.14.0\AndroidManifest.xml:18:13-58
+333        <!--
+334        Service for holding metadata. Cannot be instantiated.
+335        Metadata will be merged from other manifests.
+336        -->
+337        <service
+337-->[androidx.camera:camera-core:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\04ef6534027eec668e02783e5c168ade\transformed\camera-core-1.4.1\AndroidManifest.xml:29:9-33:78
+338            android:name="androidx.camera.core.impl.MetadataHolderService"
+338-->[androidx.camera:camera-core:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\04ef6534027eec668e02783e5c168ade\transformed\camera-core-1.4.1\AndroidManifest.xml:30:13-75
+339            android:enabled="false"
+339-->[androidx.camera:camera-core:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\04ef6534027eec668e02783e5c168ade\transformed\camera-core-1.4.1\AndroidManifest.xml:31:13-36
+340            android:exported="false" >
+340-->[androidx.camera:camera-core:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\04ef6534027eec668e02783e5c168ade\transformed\camera-core-1.4.1\AndroidManifest.xml:32:13-37
+341            <meta-data
+341-->[androidx.camera:camera-camera2:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\40778aab683aa112194987b8eab77225\transformed\camera-camera2-1.4.1\AndroidManifest.xml:30:13-32:89
+342                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
+342-->[androidx.camera:camera-camera2:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\40778aab683aa112194987b8eab77225\transformed\camera-camera2-1.4.1\AndroidManifest.xml:31:17-103
+343                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
+343-->[androidx.camera:camera-camera2:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\40778aab683aa112194987b8eab77225\transformed\camera-camera2-1.4.1\AndroidManifest.xml:32:17-86
+344        </service>
+345        <service
+345-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:39:9-45:35
+346            android:name="androidx.work.impl.background.systemjob.SystemJobService"
+346-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:40:13-84
+347            android:directBootAware="false"
+347-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:41:13-44
+348            android:enabled="@bool/enable_system_job_service_default"
+348-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:42:13-70
+349            android:exported="true"
+349-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:43:13-36
+350            android:permission="android.permission.BIND_JOB_SERVICE" />
+350-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:44:13-69
+351        <service
+351-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:46:9-52:35
+352            android:name="androidx.work.impl.foreground.SystemForegroundService"
+352-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:47:13-81
+353            android:directBootAware="false"
+353-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:48:13-44
+354            android:enabled="@bool/enable_system_foreground_service_default"
+354-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:49:13-77
+355            android:exported="false" />
+355-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:50:13-37
+356
+357        <receiver
+357-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:54:9-59:35
+358            android:name="androidx.work.impl.utils.ForceStopRunnable$BroadcastReceiver"
+358-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:55:13-88
+359            android:directBootAware="false"
+359-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:56:13-44
+360            android:enabled="true"
+360-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:57:13-35
+361            android:exported="false" />
+361-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:58:13-37
+362        <receiver
+362-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:60:9-69:20
+363            android:name="androidx.work.impl.background.systemalarm.RescheduleReceiver"
+363-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:61:13-88
+364            android:directBootAware="false"
+364-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:62:13-44
+365            android:enabled="false"
+365-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:63:13-36
+366            android:exported="false" >
+366-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:64:13-37
+367            <intent-filter>
+367-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:231:13-233:29
+368                <action android:name="android.intent.action.BOOT_COMPLETED" />
+368-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:232:17-79
+368-->C:\Users\HUAWEI\AndroidStudioProjects\v2rayNG\V2rayNG\app\src\main\AndroidManifest.xml:232:25-76
+369            </intent-filter>
+370        </receiver>
+371        <receiver
+371-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:70:9-80:20
+372            android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver"
+372-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:71:13-78
+373            android:directBootAware="false"
+373-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:72:13-44
+374            android:enabled="true"
+374-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:73:13-35
+375            android:exported="true"
+375-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:74:13-36
+376            android:permission="android.permission.DUMP" >
+376-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:75:13-57
+377            <intent-filter>
+377-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:77:13-79:29
+378                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS" />
+378-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:78:17-88
+378-->[androidx.work:work-runtime:2.11.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\5f70483f3e3ffb2e9711ad4921ae8686\transformed\work-runtime-2.11.1\AndroidManifest.xml:78:25-85
+379            </intent-filter>
+380        </receiver>
+381
+382        <uses-library
+382-->[androidx.window:window:1.0.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\86fbef9c8ca7744867a2308c8827cbb9\transformed\window-1.0.0\AndroidManifest.xml:25:9-27:40
+383            android:name="androidx.window.extensions"
+383-->[androidx.window:window:1.0.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\86fbef9c8ca7744867a2308c8827cbb9\transformed\window-1.0.0\AndroidManifest.xml:26:13-54
+384            android:required="false" />
+384-->[androidx.window:window:1.0.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\86fbef9c8ca7744867a2308c8827cbb9\transformed\window-1.0.0\AndroidManifest.xml:27:13-37
+385        <uses-library
+385-->[androidx.window:window:1.0.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\86fbef9c8ca7744867a2308c8827cbb9\transformed\window-1.0.0\AndroidManifest.xml:28:9-30:40
+386            android:name="androidx.window.sidecar"
+386-->[androidx.window:window:1.0.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\86fbef9c8ca7744867a2308c8827cbb9\transformed\window-1.0.0\AndroidManifest.xml:29:13-51
+387            android:required="false" />
+387-->[androidx.window:window:1.0.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\86fbef9c8ca7744867a2308c8827cbb9\transformed\window-1.0.0\AndroidManifest.xml:30:13-37
+388
+389        <receiver
+389-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:34:9-52:20
+390            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+390-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:35:13-76
+391            android:directBootAware="false"
+391-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:36:13-44
+392            android:enabled="true"
+392-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:37:13-35
+393            android:exported="true"
+393-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:38:13-36
+394            android:permission="android.permission.DUMP" >
+394-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:39:13-57
+395            <intent-filter>
+395-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:40:13-42:29
+396                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+396-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:17-91
+396-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:41:25-88
+397            </intent-filter>
+398            <intent-filter>
+398-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:43:13-45:29
+399                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+399-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:17-85
+399-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:44:25-82
+400            </intent-filter>
+401            <intent-filter>
+401-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:46:13-48:29
+402                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+402-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:17-88
+402-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:47:25-85
+403            </intent-filter>
+404            <intent-filter>
+404-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:49:13-51:29
+405                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+405-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:17-95
+405-->[androidx.profileinstaller:profileinstaller:1.4.1] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\2e33c9af0c3e05e57afffcb7338e0ac3\transformed\profileinstaller-1.4.1\AndroidManifest.xml:50:25-92
+406            </intent-filter>
+407        </receiver>
+408
+409        <service
+409-->[androidx.room:room-runtime-android:2.7.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\d304d78988bac2735ee90c69b8914dc0\transformed\room-runtime-release\AndroidManifest.xml:24:9-28:63
+410            android:name="androidx.room.MultiInstanceInvalidationService"
+410-->[androidx.room:room-runtime-android:2.7.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\d304d78988bac2735ee90c69b8914dc0\transformed\room-runtime-release\AndroidManifest.xml:25:13-74
+411            android:directBootAware="true"
+411-->[androidx.room:room-runtime-android:2.7.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\d304d78988bac2735ee90c69b8914dc0\transformed\room-runtime-release\AndroidManifest.xml:26:13-43
+412            android:exported="false" />
+412-->[androidx.room:room-runtime-android:2.7.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\d304d78988bac2735ee90c69b8914dc0\transformed\room-runtime-release\AndroidManifest.xml:27:13-37
+413
+414        <activity
+414-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:47:9-53:63
+415            android:name="com.journeyapps.barcodescanner.CaptureActivity"
+415-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:48:13-74
+416            android:clearTaskOnLaunch="true"
+416-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:49:13-45
+417            android:screenOrientation="sensorLandscape"
+417-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:50:13-56
+418            android:stateNotNeeded="true"
+418-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:51:13-42
+419            android:theme="@style/zxing_CaptureTheme"
+419-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:52:13-54
+420            android:windowSoftInputMode="stateAlwaysHidden" />
+420-->[com.journeyapps:zxing-android-embedded:4.3.0] C:\Users\HUAWEI\.gradle\caches\9.4.1\transforms\3cffadc021da70b7f67f54b6db9fc02d\transformed\zxing-android-embedded-4.3.0\AndroidManifest.xml:53:13-60
+421    </application>
+422
+423</manifest>
