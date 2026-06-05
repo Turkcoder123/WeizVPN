@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeizVPN - Admin Panel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0D1117;
+            color: #fff;
+            min-height: 100vh;
+        }
+        /* ===== AUTH PAGES ===== */
+        .auth-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+        .auth-card {
+            background: #161B22;
+            border: 1px solid #30363D;
+            border-radius: 16px;
+            padding: 40px;
+            width: 100%;
+            max-width: 420px;
+        }
+        .auth-logo {
+            width: 72px; height: 72px;
+            background: #1F2937;
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            margin: 0 auto 20px;
+        }
+        .auth-logo svg { width: 36px; height: 36px; }
+        .auth-title { text-align: center; font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+        .auth-subtitle { text-align: center; color: #8B949E; font-size: 14px; margin-bottom: 32px; }
+        .form-group { margin-bottom: 16px; }
+        .form-group label { display: block; font-size: 13px; color: #8B949E; margin-bottom: 6px; font-weight: 500; }
+        .form-group input {
+            width: 100%; padding: 12px 16px;
+            background: #0D1117; border: 1px solid #30363D;
+            border-radius: 10px; color: #fff; font-size: 14px;
+            outline: none; transition: border-color 0.2s;
+        }
+        .form-group input:focus { border-color: #22C55E; }
+        .form-group input::placeholder { color: #484F58; }
+        .btn {
+            width: 100%; padding: 12px; border: none; border-radius: 10px;
+            font-size: 15px; font-weight: 600; cursor: pointer;
+            transition: all 0.2s; display: flex; align-items: center;
+            justify-content: center; gap: 8px;
+        }
+        .btn-primary { background: #22C55E; color: #fff; }
+        .btn-primary:hover { background: #16A34A; }
+        .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+        .btn-secondary { background: #1F2937; color: #fff; }
+        .btn-secondary:hover { background: #374151; }
+        .btn-danger { background: #EF4444; color: #fff; }
+        .btn-danger:hover { background: #DC2626; }
+        .auth-link { text-align: center; margin-top: 16px; }
+        .auth-link a { color: #22C55E; text-decoration: none; font-size: 14px; cursor: pointer; }
+        .auth-link a:hover { text-decoration: underline; }
+        .error-msg { color: #EF4444; font-size: 13px; text-align: center; margin-top: 8px; display: none; }
+        .spinner { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,0.3); border-top-color: #fff; border-radius: 50%; animation: spin 0.6s linear infinite; display: none; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* ===== DASHBOARD ===== */
+        .app { display: none; }
+        .app.active { display: block; }
+        .sidebar {
+            position: fixed; left: 0; top: 0; bottom: 0; width: 260px;
+            background: #161B22; border-right: 1px solid #30363D;
+            padding: 24px; display: flex; flex-direction: column;
+        }
+        .sidebar-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 32px; }
+        .sidebar-logo svg { width: 28px; height: 28px; }
+        .sidebar-logo span { font-size: 20px; font-weight: 700; }
+        .sidebar-nav { flex: 1; }
+        .nav-item {
+            display: flex; align-items: center; gap: 12px;
+            padding: 12px 16px; border-radius: 10px; cursor: pointer;
+            color: #8B949E; font-size: 14px; font-weight: 500;
+            transition: all 0.2s; margin-bottom: 4px;
+        }
+        .nav-item:hover { background: #1F2937; color: #fff; }
+        .nav-item.active { background: #22C55E20; color: #22C55E; }
+        .nav-item svg { width: 20px; height: 20px; flex-shrink: 0; }
+        .sidebar-footer { padding-top: 16px; border-top: 1px solid #30363D; }
+        .user-info { display: flex; align-items: center; gap: 12px; padding: 12px; border-radius: 10px; cursor: pointer; }
+        .user-info:hover { background: #1F2937; }
+        .user-avatar {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: #22C55E; display: flex; align-items: center;
+            justify-content: center; font-weight: 700; font-size: 14px;
+        }
+        .user-name { font-size: 14px; font-weight: 500; }
+        .user-email { font-size: 12px; color: #8B949E; }
+
+        .main-content { margin-left: 260px; padding: 32px; }
+        .page-header { margin-bottom: 24px; }
+        .page-header h1 { font-size: 24px; font-weight: 700; }
+        .page-header p { color: #8B949E; font-size: 14px; margin-top: 4px; }
+
+        /* Status Card */
+        .status-card {
+            background: linear-gradient(135deg, #1F2937, #111827);
+            border-radius: 16px; padding: 32px; text-align: center;
+            margin-bottom: 24px; border: 1px solid #30363D;
+        }
+        .status-card.connected {
+            background: linear-gradient(135deg, #22C55E, #16A34A);
+            border-color: #22C55E;
+        }
+        .status-icon {
+            width: 64px; height: 64px; border-radius: 50%;
+            background: #374151; display: flex; align-items: center;
+            justify-content: center; margin: 0 auto 16px;
+        }
+        .status-card.connected .status-icon { background: rgba(255,255,255,0.2); }
+        .status-icon svg { width: 32px; height: 32px; }
+        .status-text { font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+        .status-server { font-size: 14px; color: #8B949E; }
+        .status-card.connected .status-server { color: rgba(255,255,255,0.8); }
+        .status-btn { margin-top: 20px; }
+
+        /* Stats */
+        .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
+        .stat-card {
+            background: #161B22; border: 1px solid #30363D;
+            border-radius: 12px; padding: 20px; text-align: center;
+        }
+        .stat-card svg { width: 24px; height: 24px; color: #22C55E; margin-bottom: 8px; }
+        .stat-value { font-size: 20px; font-weight: 700; }
+        .stat-label { font-size: 12px; color: #8B949E; margin-top: 4px; }
+
+        /* Server List */
+        .section-title { font-size: 18px; font-weight: 600; margin-bottom: 16px; }
+        .server-list { display: flex; flex-direction: column; gap: 8px; }
+        .server-card {
+            background: #161B22; border: 1px solid #30363D;
+            border-radius: 12px; padding: 16px;
+            display: flex; align-items: center; gap: 16px;
+            cursor: pointer; transition: all 0.2s;
+        }
+        .server-card:hover { border-color: #22C55E; }
+        .server-card.connected { border-color: #22C55E; background: #22C55E10; }
+        .server-status-dot {
+            width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+        }
+        .server-status-dot.online { background: #22C55E; }
+        .server-status-dot.offline { background: #EF4444; }
+        .server-info { flex: 1; }
+        .server-name { font-weight: 600; font-size: 14px; }
+        .server-location { font-size: 12px; color: #8B949E; margin-top: 2px; }
+        .server-load {
+            padding: 4px 10px; border-radius: 8px; font-size: 12px;
+            font-weight: 500;
+        }
+        .server-load.low { background: #22C55E20; color: #22C55E; }
+        .server-load.medium { background: #F59E0B20; color: #F59E0B; }
+        .server-load.high { background: #EF444420; color: #EF4444; }
+        .server-connect-btn {
+            width: 36px; height: 36px; border-radius: 50%;
+            border: none; cursor: pointer; display: flex;
+            align-items: center; justify-content: center;
+            background: #22C55E20; color: #22C55E; transition: all 0.2s;
+        }
+        .server-connect-btn:hover { background: #22C55E; color: #fff; }
+        .server-connect-btn.connected { background: #EF444420; color: #EF4444; }
+        .server-connect-btn.connected:hover { background: #EF4444; color: #fff; }
+        .server-connect-btn svg { width: 18px; height: 18px; }
+
+        /* Profile Page */
+        .profile-card {
+            background: #161B22; border: 1px solid #30363D;
+            border-radius: 16px; padding: 32px; max-width: 480px;
+        }
+        .profile-avatar {
+            width: 80px; height: 80px; border-radius: 50%;
+            background: #22C55E; display: flex; align-items: center;
+            justify-content: center; font-size: 32px; font-weight: 700;
+            margin: 0 auto 24px;
+        }
+        .profile-field { margin-bottom: 16px; }
+        .profile-field label { display: block; font-size: 13px; color: #8B949E; margin-bottom: 6px; }
+        .profile-field input { width: 100%; padding: 12px 16px; background: #0D1117; border: 1px solid #30363D; border-radius: 10px; color: #fff; font-size: 14px; outline: none; }
+        .profile-field input:focus { border-color: #22C55E; }
+        .profile-field input:disabled { opacity: 0.6; }
+
+        /* Toast */
+        .toast {
+            position: fixed; bottom: 24px; right: 24px;
+            padding: 12px 20px; border-radius: 10px;
+            font-size: 14px; font-weight: 500; z-index: 1000;
+            display: none; animation: slideIn 0.3s ease;
+        }
+        .toast.success { background: #22C55E; color: #fff; }
+        .toast.error { background: #EF4444; color: #fff; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        .hidden { display: none !important; }
+
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .main-content { margin-left: 0; padding: 16px; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .mobile-header {
+                display: flex !important; align-items: center;
+                justify-content: space-between; padding: 16px;
+                background: #161B22; border-bottom: 1px solid #30363D;
+            }
+        }
+        .mobile-header { display: none; }
+        .mobile-menu-btn { background: none; border: none; color: #fff; cursor: pointer; padding: 8px; }
+        .mobile-menu-btn svg { width: 24px; height: 24px; }
+        .sidebar-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,0.5); z-index: 999;
+        }
+        .sidebar-overlay.active { display: block; }
+        .sidebar.mobile-open { display: flex; z-index: 1000; }
+    </style>
+</head>
+<body>
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <!-- ===== LOGIN PAGE ===== -->
+    <div class="auth-container" id="loginPage">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h1 class="auth-title">WeizVPN</h1>
+            <p class="auth-subtitle">Sign in to your account</p>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
+                </div>
+                <div class="error-msg" id="loginError"></div>
+                <button type="submit" class="btn btn-primary" id="loginBtn">
+                    <span class="spinner" id="loginSpinner"></span>
+                    <span id="loginBtnText">Sign In</span>
+                </button>
+            </form>
+            <div class="auth-link">
+                <a onclick="showRegister()">Don't have an account? Sign Up</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== REGISTER PAGE ===== -->
+    <div class="auth-container hidden" id="registerPage">
+        <div class="auth-card">
+            <div class="auth-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <h1 class="auth-title">Create Account</h1>
+            <p class="auth-subtitle">Sign up to get started</p>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="regUsername" placeholder="johndoe" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="regEmail" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="regPassword" placeholder="••••••••" required>
+                </div>
+                <div class="error-msg" id="regError"></div>
+                <button type="submit" class="btn btn-primary" id="regBtn">
+                    <span class="spinner" id="regSpinner"></span>
+                    <span id="regBtnText">Sign Up</span>
+                </button>
+            </form>
+            <div class="auth-link">
+                <a onclick="showLogin()">Already have an account? Sign In</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== DASHBOARD ===== -->
+    <div class="app" id="app">
+        <!-- Mobile Header -->
+        <div class="mobile-header">
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            </button>
+            <span style="font-weight:700">WeizVPN</span>
+            <div></div>
+        </div>
+        <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleMobileMenu()"></div>
+
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>WeizVPN</span>
+            </div>
+            <nav class="sidebar-nav">
+                <div class="nav-item active" onclick="showPage('dashboard')" id="navDashboard">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    Dashboard
+                </div>
+                <div class="nav-item" onclick="showPage('profile')" id="navProfile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                    Profile
+                </div>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info" onclick="showPage('profile')">
+                    <div class="user-avatar" id="sidebarAvatar">U</div>
+                    <div>
+                        <div class="user-name" id="sidebarName">User</div>
+                        <div class="user-email" id="sidebarEmail">user@example.com</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard Page -->
+            <div id="pageDashboard">
+                <div class="page-header">
+                    <h1>Dashboard</h1>
+                    <p>Manage your VPN connections</p>
+                </div>
+
+                <div class="status-card" id="statusCard">
+                    <div class="status-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2"/><path d="M6 12h4l2-3 2 6 2-3 2 3"/></svg>
+                    </div>
+                    <div class="status-text" id="statusText">Disconnected</div>
+                    <div class="status-server" id="statusServer"></div>
+                    <button class="btn btn-secondary status-btn" id="disconnectBtn" onclick="disconnect()" style="display:none">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Disconnect
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                        <div class="stat-value" id="statDownload">0 MB</div>
+                        <div class="stat-label">Download</div>
+                    </div>
+                    <div class="stat-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="5 12 12 5 19 12"/></svg>
+                        <div class="stat-value" id="statUpload">0 MB</div>
+                        <div class="stat-label">Upload</div>
+                    </div>
+                    <div class="stat-card">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+                        <div class="stat-value" id="statSessions">0</div>
+                        <div class="stat-label">Sessions</div>
+                    </div>
+                </div>
+
+                <h2 class="section-title">VPN Servers</h2>
+                <div class="server-list" id="serverList">
+                    <div style="text-align:center;padding:32px;color:#8B949E">Loading servers...</div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div id="pageProfile" class="hidden">
+                <div class="page-header">
+                    <h1>Profile</h1>
+                    <p>Manage your account settings</p>
+                </div>
+                <div class="profile-card">
+                    <div class="profile-avatar" id="profileAvatar">U</div>
+                    <div class="profile-field">
+                        <label>Email</label>
+                        <input type="email" id="profileEmail" disabled>
+                    </div>
+                    <div class="profile-field">
+                        <label>Username</label>
+                        <input type="text" id="profileUsername">
+                    </div>
+                    <button class="btn btn-primary" onclick="updateProfile()" id="profileSaveBtn">
+                        <span class="spinner" id="profileSpinner"></span>
+                        <span>Save Changes</span>
+                    </button>
+                    <button class="btn btn-danger" onclick="logout()" style="margin-top:12px">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_BASE = 'http://144.172.112.46:3000/api';
+        let token = localStorage.getItem('token');
+        let currentServer = null;
+
+        // ===== TOAST =====
+        function showToast(msg, type = 'success') {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.className = `toast ${type}`; t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 3000);
+        }
+
+        // ===== AUTH =====
+        function showRegister() { document.getElementById('loginPage').classList.add('hidden'); document.getElementById('registerPage').classList.remove('hidden'); }
+        function showLogin() { document.getElementById('registerPage').classList.add('hidden'); document.getElementById('loginPage').classList.remove('hidden'); }
+
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('loginBtn'); const spinner = document.getElementById('loginSpinner'); const btnText = document.getElementById('loginBtnText');
+            const err = document.getElementById('loginError'); err.style.display = 'none';
+            btn.disabled = true; spinner.style.display = 'block'; btnText.textContent = 'Signing in...';
+            try {
+                const res = await fetch(`${API_BASE}/auth/login`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: document.getElementById('loginEmail').value, password: document.getElementById('loginPassword').value })
+                });
+                const data = await res.json();
+                if (data.token) {
+                    token = data.token; localStorage.setItem('token', token);
+                    initApp(); showToast('Login successful');
+                } else { err.textContent = data.error || 'Login failed'; err.style.display = 'block'; }
+            } catch(e) { err.textContent = 'Connection error'; err.style.display = 'block'; }
+            finally { btn.disabled = false; spinner.style.display = 'none'; btnText.textContent = 'Sign In'; }
+        });
+
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('regBtn'); const spinner = document.getElementById('regSpinner'); const btnText = document.getElementById('regBtnText');
+            const err = document.getElementById('regError'); err.style.display = 'none';
+            btn.disabled = true; spinner.style.display = 'block'; btnText.textContent = 'Creating account...';
+            try {
+                const res = await fetch(`${API_BASE}/auth/register`, {
+                    method: 'POST', headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email: document.getElementById('regEmail').value, password: document.getElementById('regPassword').value, username: document.getElementById('regUsername').value })
+                });
+                const data = await res.json();
+                if (data.token) {
+                    token = data.token; localStorage.setItem('token', data.token);
+                    initApp(); showToast('Account created!');
+                } else { err.textContent = data.error || 'Registration failed'; err.style.display = 'block'; }
+            } catch(e) { err.textContent = 'Connection error'; err.style.display = 'block'; }
+            finally { btn.disabled = false; spinner.style.display = 'none'; btnText.textContent = 'Sign Up'; }
+        });
+
+        // ===== APP INIT =====
+        async function initApp() {
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('registerPage').classList.add('hidden');
+            document.getElementById('app').classList.add('active');
+            await loadProfile();
+            await loadServers();
+        }
+
+        function getHeaders() { return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` }; }
+
+        // ===== PROFILE =====
+        async function loadProfile() {
+            try {
+                const res = await fetch(`${API_BASE}/users/profile`, { headers: getHeaders() });
+                const data = await res.json();
+                if (data.user) {
+                    const u = data.user;
+                    document.getElementById('sidebarAvatar').textContent = u.username[0].toUpperCase();
+                    document.getElementById('sidebarName').textContent = u.username;
+                    document.getElementById('sidebarEmail').textContent = u.email;
+                    document.getElementById('profileAvatar').textContent = u.username[0].toUpperCase();
+                    document.getElementById('profileEmail').value = u.email;
+                    document.getElementById('profileUsername').value = u.username;
+                }
+            } catch(e) { console.error('Profile load error', e); }
+        }
+
+        async function updateProfile() {
+            const btn = document.getElementById('profileSaveBtn'); const spinner = document.getElementById('profileSpinner');
+            btn.disabled = true; spinner.style.display = 'block';
+            try {
+                const res = await fetch(`${API_BASE}/users/profile`, {
+                    method: 'PUT', headers: getHeaders(),
+                    body: JSON.stringify({ username: document.getElementById('profileUsername').value })
+                });
+                const data = await res.json();
+                if (data.message) { showToast('Profile updated'); await loadProfile(); }
+                else showToast(data.error || 'Update failed', 'error');
+            } catch(e) { showToast('Update failed', 'error'); }
+            finally { btn.disabled = false; spinner.style.display = 'none'; }
+        }
+
+        // ===== SERVERS =====
+        async function loadServers() {
+            try {
+                const res = await fetch(`${API_BASE}/vpn/servers`, { headers: getHeaders() });
+                const data = await res.json();
+                if (data.servers) renderServers(data.servers);
+            } catch(e) { document.getElementById('serverList').innerHTML = '<div style="text-align:center;padding:32px;color:#EF4444">Failed to load servers</div>'; }
+        }
+
+        function renderServers(servers) {
+            const container = document.getElementById('serverList');
+            container.innerHTML = servers.map(s => {
+                const loadClass = s.load < 50 ? 'low' : s.load < 80 ? 'medium' : 'high';
+                const isConnected = currentServer === s.name;
+                return `<div class="server-card ${isConnected ? 'connected' : ''}" onclick="connectToServer(${s.id}, '${s.name}')">
+                    <div class="server-status-dot ${s.status === 'online' ? 'online' : 'offline'}"></div>
+                    <div class="server-info">
+                        <div class="server-name">${s.name}</div>
+                        <div class="server-location">${s.location} • ${s.ip}</div>
+                    </div>
+                    <div class="server-load ${loadClass}">${s.load}%</div>
+                    <button class="server-connect-btn ${isConnected ? 'connected' : ''}" onclick="event.stopPropagation(); ${isConnected ? 'disconnect()' : `connectToServer(${s.id}, '${s.name}')`}">
+                        ${isConnected ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>' : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>'}
+                    </button>
+                </div>`;
+            }).join('');
+        }
+
+        async function connectToServer(id, name) {
+            try {
+                const res = await fetch(`${API_BASE}/vpn/connect`, {
+                    method: 'POST', headers: getHeaders(),
+                    body: JSON.stringify({ serverId: id })
+                });
+                const data = await res.json();
+                if (data.connection) {
+                    currentServer = name;
+                    document.getElementById('statusCard').classList.add('connected');
+                    document.getElementById('statusText').textContent = 'Connected';
+                    document.getElementById('statusServer').textContent = name;
+                    document.getElementById('disconnectBtn').style.display = 'block';
+                    showToast(`Connected to ${name}`);
+                    await loadServers();
+                }
+            } catch(e) { showToast('Connection failed', 'error'); }
+        }
+
+        async function disconnect() {
+            try {
+                await fetch(`${API_BASE}/vpn/disconnect`, { method: 'POST', headers: getHeaders() });
+                currentServer = null;
+                document.getElementById('statusCard').classList.remove('connected');
+                document.getElementById('statusText').textContent = 'Disconnected';
+                document.getElementById('statusServer').textContent = '';
+                document.getElementById('disconnectBtn').style.display = 'none';
+                showToast('Disconnected');
+                await loadServers();
+            } catch(e) { showToast('Disconnect failed', 'error'); }
+        }
+
+        // ===== PAGES =====
+        function showPage(page) {
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            document.getElementById(`nav${page.charAt(0).toUpperCase() + page.slice(1)}`).classList.add('active');
+            document.getElementById('pageDashboard').classList.toggle('hidden', page !== 'dashboard');
+            document.getElementById('pageProfile').classList.toggle('hidden', page !== 'profile');
+            if (window.innerWidth <= 768) toggleMobileMenu();
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('sidebar').classList.toggle('mobile-open');
+            document.getElementById('sidebarOverlay').classList.toggle('active');
+        }
+
+        // ===== LOGOUT =====
+        function logout() {
+            localStorage.removeItem('token');
+            token = null;
+            currentServer = null;
+            document.getElementById('app').classList.remove('active');
+            document.getElementById('loginPage').classList.remove('hidden');
+            document.getElementById('loginEmail').value = '';
+            document.getElementById('loginPassword').value = '';
+            showToast('Signed out');
+        }
+
+        // ===== AUTO-LOGIN CHECK =====
+        if (token) {
+            initApp();
+        }
+
+       

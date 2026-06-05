@@ -15,6 +15,9 @@ RUN mkdir -p /etc/nginx/ssl
 # Create static files directory
 RUN mkdir -p /var/www/static
 
+# Copy web UI files
+COPY ../app/web /var/www/static
+
 # Expose ports
 EXPOSE 80
 EXPOSE 443
