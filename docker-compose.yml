@@ -39,7 +39,7 @@ services:
     volumes:
       - ./backend/nginx/nginx.conf:/etc/nginx/conf.d/nginx.conf:ro
       - nginx_ssl:/etc/nginx/ssl
-      - nginx_static:/var/www/static
+      - ./app/web:/var/www/static
     depends_on:
       backend:
         condition: service_healthy
@@ -60,6 +60,4 @@ volumes:
   backend_data:
     driver: local
   nginx_ssl:
-    driver: local
-  nginx_static:
     driver: local
